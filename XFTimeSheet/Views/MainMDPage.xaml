@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" prism:ViewModelLocator.AutowireViewModel="True" x:Class="XFTimeSheet.Views.MainMDPage">
+	<MasterDetailPage.Master>
+		<ContentPage Title="功能表" Icon="hamburger.png">
+			<ContentPage.Padding>
+				<OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" Android="0" WinPhone="0,0" />
+			</ContentPage.Padding>
+			<ContentPage.Resources>
+				<ResourceDictionary>
+					<Style x:Key="MenuItemLevel1Style" TargetType="Label">
+						<Setter Property="HorizontalOptions" Value="Start" />
+						<Setter Property="VerticalOptions" Value="Center" />
+						<Setter Property="FontSize" Value="22" />
+						<Setter Property="TextColor" Value="Black" />
+						<Setter Property="Margin" Value="35,10,0,0" />
+					</Style>
+					<Style x:Key="MenuItemLevel2Style" TargetType="Label">
+						<Setter Property="HorizontalOptions" Value="Start" />
+						<Setter Property="VerticalOptions" Value="Center" />
+						<Setter Property="FontSize" Value="Large" />
+						<Setter Property="TextColor" Value="White" />
+						<Setter Property="Margin" Value="60,10,0,0" />
+					</Style>
+				</ResourceDictionary>
+			</ContentPage.Resources>
+			<StackLayout Orientation="Vertical" BackgroundColor="White" VerticalOptions="FillAndExpand">
+				<Grid BackgroundColor="#C63300">
+					<!--<Image>
+						<Image.Source>
+							<OnPlatform x:TypeArguments="ImageSource">
+								<OnPlatform.iOS>
+									<FileImageSource File="sidebar.png" />
+								</OnPlatform.iOS>
+								<OnPlatform.Android>
+									<FileImageSource File="sidebar.png" />
+								</OnPlatform.Android>
+							</OnPlatform>
+						</Image.Source>
+					</Image>-->
+					<Image Margin="15,15,0,0" WidthRequest="64" HeightRequest="64" Aspect="Fill" HorizontalOptions="Start" VerticalOptions="Start">
+						<Image.Source>
+							<OnPlatform x:TypeArguments="ImageSource">
+								<OnPlatform.iOS>
+									<FileImageSource File="Logo.png" />
+								</OnPlatform.iOS>
+								<OnPlatform.Android>
+									<FileImageSource File="Logo.png" />
+								</OnPlatform.Android>
+							</OnPlatform>
+						</Image.Source>
+					</Image>
+					<Label Text="KerryHuang股份有限公司" TextColor="White" FontSize="18" HorizontalOptions="Start" VerticalOptions="End" Margin="15,0,0,15" />
+				</Grid>
+				<Grid Padding="10,5,10,5">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="20" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+					<Label Grid.Column="0" Text="&#xf0f6;" FontSize="25" FontFamily="FontAwesome" TextColor="Black" VerticalTextAlignment="Center" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
+					<Label Grid.Column="1" Text="請假單申請" Style="{StaticResource MenuItemLevel1Style}" TextColor="{Binding TravelExpenseColor}">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding AbsentCommand}" />
+						</Label.GestureRecognizers>
+					</Label>
+				</Grid>
+				<Grid Padding="10,5,10,5">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="20" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+					<Label Grid.Column="0" Text="&#xf0f6;" FontSize="25" FontFamily="FontAwesome" TextColor="Black" VerticalTextAlignment="Center" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
+					<Label Grid.Column="1" Text="差旅費用申請" Style="{StaticResource MenuItemLevel1Style}" TextColor="{Binding TravelExpenseColor}">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding TravelExpenseCommand}" />
+						</Label.GestureRecognizers>
+					</Label>
+				</Grid>
+				<Grid Padding="10,5,10,5">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="20" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+					<Label Grid.Column="0" Text="&#xf08b;" FontSize="25" FontFamily="FontAwesome" TextColor="Black" VerticalTextAlignment="Center" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
+					<Label Grid.Column="1" Text="登出" Style="{StaticResource MenuItemLevel1Style}" TextColor="{Binding LogOutColor}">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding LogOutCommand}" />
+						</Label.GestureRecognizers>
+					</Label>
+				</Grid>
+			</StackLayout>
+		</ContentPage>
+	</MasterDetailPage.Master>
+</MasterDetailPage>
